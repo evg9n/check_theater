@@ -36,8 +36,6 @@ def send_mail(sender: str, password: str, recipient: Union[str, List[str]],
         server.login(sender, password)
         msg = MIMEText(message)
         msg['Subject'] = subject
-
-        print(recipient)
         server.sendmail(sender, recipient, msg.as_string())
         logger.info('Message send')
         return True
